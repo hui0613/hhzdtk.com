@@ -1,0 +1,25 @@
+#app {
+  margin: 0 auto;
+  height: auto;
+  // position: relative;
+  padding: 0px 0px 20px 0px;
+  //   border: 1px solid red;
+}
+
+body::-webkit-scrollbar {
+  width: 2px;
+}
+
+body::-webkit-scrollbar:hover {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  /* color: red; */
+  background-color: rgb(130, 233, 228);
+}
+
+body::-webkit-scrollbar-button {
+  height: 0px;
+  background-color: rgb(98, 189, 224);
+}

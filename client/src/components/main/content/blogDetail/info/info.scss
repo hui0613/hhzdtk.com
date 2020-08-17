@@ -1,0 +1,23 @@
+.info {
+  height: auto;
+  //   触发BFC
+  overflow: hidden;
+  // border: 1px solid red;
+  h1 {
+    font-weight: normal;
+  }
+  .blog-post-foot {
+    li {
+      margin-left: 20px;
+      margin-top: 15px;
+      float: left;
+      .icon-user::before {
+        content: "\e971";
+      }
+
+      .icon-date::before {
+        content: "\e953";
+      }
+    }
+  }
+}

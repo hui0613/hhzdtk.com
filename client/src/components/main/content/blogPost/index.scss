@@ -1,0 +1,46 @@
+.blog-post {
+  box-sizing: border-box;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: #fffdfdee;
+  box-shadow: 5px 5px 5px #d1d1d1;
+  &:hover {
+    transform: scale(1.01);
+    background-color: #eeeded;
+  }
+  h3 {
+    display: block;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 20px;
+    /* border: 1px solid red; */
+  }
+  p {
+    line-height: 2em;
+    word-break: break-all;
+    /* border: 1px solid red; */
+  }
+  .underline {
+    height: 0px;
+    padding-top: 1px;
+    margin-top: 15px;
+    background-color: #bebebe88;
+    translate: scale(0.5);
+  }
+  .blog-post-foot {
+    height: 30px;
+  }
+  li {
+    margin-left: 20px;
+    margin-top: 15px;
+    float: left;
+    .icon-user::before {
+      content: "\e971";
+    }
+
+    .icon-date::before {
+      content: "\e953";
+    }
+  }
+}

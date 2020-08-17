@@ -1,0 +1,35 @@
+.nav {
+  li {
+    padding-left: 20px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 5px;
+    cursor: pointer;
+    /* border-bottom: 1px solid rgba(85, 85, 87, 0.555); */
+    &:hover {
+      background-color: rgba(126, 126, 129, 0.178);
+    }
+    a {
+      padding-left: 5px;
+      line-height: 30px;
+      color: rgba(46, 46, 48, 0.555);
+    }
+    .icon-location::before {
+      font-size: 20px;
+      line-height: 40px;
+      content: "\e947";
+      /* border: 1px solid red; */
+    }
+
+    .icon-cloud::before {
+      font-size: 20px;
+      line-height: 40px;
+      content: "\e9c2";
+    }
+    .icon-login::before {
+      font-size: 20px;
+      line-height: 40px;
+      content: "\e98f";
+    }
+  }
+}

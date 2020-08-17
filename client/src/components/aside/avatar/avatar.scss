@@ -1,0 +1,57 @@
+.avatar_box {
+  overflow: hidden;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+
+  cursor: pointer;
+  // border: 1px solid red;
+  img {
+    width: 100%;
+    border-radius: 50%;
+    animation: rotateAvatar 3s linear forwards infinite;
+    -webkit-animation: rotateAvatar 3s linear forwards infinite;
+  }
+  &:hover {
+    animation: scaleAvatar 0.5s linear forwards, rotateAvatar 1s linear forwards;
+    -webkit-animation: scaleAvatar 0.5s linear forwards,
+      rotateAvatar 1s linear forwards;
+  }
+}
+
+.web_name {
+  cursor: pointer;
+  margin-top: 15px;
+  p {
+    font-weight: bold;
+    text-align: center;
+  }
+  .motto {
+    font-weight: 500;
+    font-size: 12px;
+  }
+}
+
+@keyframes rotateAvatar {
+  from {
+    transform: rotateY(0deg);
+    -webkit-transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+
+@keyframes scaleAvatar {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+}

@@ -1,0 +1,31 @@
+li {
+  list-style: none;
+}
+
+.img-box {
+  width: 180px;
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px rgb(172, 168, 168);
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  img {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: block;
+  }
+  h3 {
+    margin: 0;
+    text-align: center;
+    font-size: 0.426667rem;
+  }
+  .desc {
+    font-size: 0.373333rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

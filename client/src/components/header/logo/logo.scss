@@ -1,0 +1,38 @@
+.logo {
+  height: 60px;
+  float: left;
+  text-align: center;
+  span {
+    line-height: 60px;
+    font-size: 35px;
+    background-image: -webkit-linear-gradient(
+      bottom,
+      rgb(19, 101, 224),
+      #5fee1d,
+      rgb(195, 21, 218)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* border: 1px solid red; */
+  }
+}
+
+.icon-home::before {
+  width: 60px;
+  height: 60px;
+  font-size: 35px;
+  line-height: 60px;
+  color: #504d4d;
+  content: "\e901";
+}
+
+.menu {
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  .icon-menu::before {
+    font-size: 30px;
+    line-height: 45px;
+    content: "\e9bb";
+  }
+}

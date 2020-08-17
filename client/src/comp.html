@@ -1,0 +1,38 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-08-08 17:00:42
+ * @LastEditTime: 2020-08-11 23:18:48
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Editsc
+ * @FilePath: /study/home/hui/Document/hhzdtk.com/client/src/comp.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= htmlWebpackPlugin.options.title%></title>
+    <link rel="icon" href="favicon.ico" />
+    <script>
+      document.addEventListener(
+        "error",
+        function (e) {
+          var elem = e.target;
+          if (elem.tagName.toLowerCase() == "img") {
+            elem.src =
+              "https://www.sindsun.com/Uploads/Image/20180922/5e69376ddd7e59ad6306e93dd06fba08.png";
+          }
+        },
+        true
+      );
+    </script>
+    <style>
+      html {
+        font-size: 37.5px !important;
+        background-color: #ebecf0;
+      }
+    </style>
+  </head>
+
+  <body></body>
+</html>

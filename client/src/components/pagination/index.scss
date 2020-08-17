@@ -1,0 +1,28 @@
+.pagination {
+  float: left;
+  // border: 1px solid red;
+  .list li {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-left: 3px;
+    line-height: 25px;
+    text-align: center;
+    background-color: #fffdfdee;
+    &:first-child {
+      margin-left: 0px;
+    }
+    .icon-pre::before {
+      content: "\ea1f";
+    }
+    .icon-next::before {
+      content: "\ea20";
+    }
+    &.isCur {
+      a {
+        color: #fff !important;
+      }
+      background-color: rgba(17, 17, 17, 0.87);
+    }
+  }
+}

@@ -1,0 +1,101 @@
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (max-width: 767px) {
+  #aside {
+    width: 220px;
+    margin-top: 60px;
+    margin-left: -230px;
+    z-index: 99999;
+    background-color: #fffefeef;
+    .avatar_box {
+      width: 140px;
+      height: 140px;
+    }
+    .login {
+      display: block;
+      // text-align: center;
+    }
+  }
+
+  #mask {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 999;
+    background-color: #6b686898;
+  }
+
+  /* 移动端时展开和收起左侧抽屉导航 */
+  @keyframes showDrawer {
+    from {
+      margin-left: -230px;
+    }
+    to {
+      margin-left: 0px;
+    }
+  }
+  .showAsideDrawer {
+    animation: showDrawer 0.4s linear forwards;
+    -webkit-animation: showDrawer 0.4s linear forwards;
+  }
+
+  @keyframes hdieDrawer {
+    from {
+      margin-left: 0px;
+    }
+    to {
+      margin-left: -230px;
+    }
+  }
+  .hideAsideDrawer {
+    animation: hdieDrawer 0.4s linear forwards;
+    -webkit-animation: hdieDrawer 0.4s linear forwards;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #aside {
+    width: 200px;
+    .avatar_box {
+      width: 140px;
+      height: 140px;
+      margin-top: 20px;
+    }
+    .login {
+      display: none;
+    }
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #aside {
+    width: 220px;
+    .avatar_box {
+      width: 140px;
+      height: 140px;
+    }
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
+
+#aside {
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  padding-top: 60px;
+  background-color: #f9f9f9;
+  .aside-top {
+    position: relative;
+    top: 0;
+    height: 220px;
+    /* border: 1px solid black; */
+  }
+}

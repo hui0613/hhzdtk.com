@@ -16,12 +16,16 @@ class Header {
     this.bindEvent();
   }
   async render() {
-    await this.$el.append(
-      tools.tplReplace(tpl(),{
-        logo: this.logo.tpl(),
-        search: this.search.tpl(),
-      })
-    );
+    // await this.$el.append(
+    // tools.tplReplace(tpl(),{
+    //   logo: this.logo.tpl(),
+    //   search: this.search.tpl(),
+    // })
+    await tools.append(this.$el,tools.tplReplace(tpl(),{
+      logo: this.logo.tpl(),
+      search: this.search.tpl(),
+    }))
+
   }
   bindEvent() {
     let mbSearch = document.getElementById("mb_search");

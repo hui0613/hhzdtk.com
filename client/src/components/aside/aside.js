@@ -17,12 +17,16 @@ class Aside {
     this.render();
   }
   render() {
-    this.$el.append(
-      tools.tplReplace(tpl(),{
-        avatar: this.avatar.tpl(this.info),
-        nav: this.nav.tpl(),
-      })
-    );
+    // this.$el.append(
+    // tools.tplReplace(tpl(),{
+    //   avatar: this.avatar.tpl(this.info),
+    //   nav: this.nav.tpl(),
+    // })
+    // );
+    tools.append(this.$el,tools.tplReplace(tpl(),{
+      avatar: this.avatar.tpl(this.info),
+      nav: this.nav.tpl(),
+    }))
   }
 }
 

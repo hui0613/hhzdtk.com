@@ -2,8 +2,9 @@ import Axios from "axios";
 import config from "../utils/config";
 
 class App {
-  constructor($) {
-    this.$app = $('<div id="app">');
+  constructor() {
+    this.$app = document.createElement('div');
+    this.$app.setAttribute('id','app')
     this.settingCache = null;
     this.articlCache = null;
     this.pageCount = 0;

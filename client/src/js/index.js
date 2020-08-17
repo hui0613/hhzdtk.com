@@ -1,4 +1,4 @@
-const $ = require("jquery");
+
 import "../scss/base.scss";
 import "../scss/common.scss";
 import { Header } from "../components/header/header";
@@ -10,8 +10,8 @@ import config from "../utils/config";
 import tools from "../utils/tools";
 import { App } from "./App";
 class Index extends App {
-  constructor($) {
-    super($);
+  constructor() {
+    super();
     this.init();
   }
 
@@ -29,7 +29,9 @@ class Index extends App {
       this.pageCount,
       this.hotArticle
     ).init();
-    $("body").prepend(this.$app);
+    // $("body").prepend(this.$app);
+    // console.log(this.$app)
+    tools.append(document.body,this.$app)
   }
 
   async getArticlList() {
@@ -58,4 +60,4 @@ class Index extends App {
   }
 }
 
-new Index($);
+new Index();

@@ -38,16 +38,6 @@ function removeClass(obj,className) {
   }
 }
 
-//添加或者删除类名循环切换
-function toggleClassName(obj,className) {
-  if (!hasClassName(obj,className)) {
-    //指定元素不包含指定类名，则添加类名
-    addClassName(obj,className);
-  } else if (hasClassName(obj,className)) {
-    //指定元素一有指定类名，则删除该类名
-    removeClass(obj,className);
-  }
-}
 
 // 定义函数判断指定元素 是否已经包含指定类名，避免重复添加类名
 function hasClassName(obj,className) {
@@ -59,20 +49,7 @@ function hasClassName(obj,className) {
   return false;
 }
 
-// 设置函数 通过添加或者删除类名来控制动画
-function controlAnimation(obj,showClass,hideClass) {
-  if (hasClassName(obj,showClass)) {
-    removeClass(obj,showClass);
-    obj.className += hideClass;
-  } else {
-    if (hasClassName(obj,hideClass)) {
-      removeClass(obj,hideClass);
-      obj.className += showClass;
-    } else {
-      obj.className += " " + showClass;
-    }
-  }
-}
+
 
 
 // 节流函数
@@ -91,13 +68,27 @@ function throttle(obj,fn,delay) {
   }
 }
 
+function append(parent,text) {
+  if (typeof text === 'string') {
+    var temp = document.createElement('div');
+    temp.innerHTML = text;
+    // 防止元素太多 进行提速
+    var frag = document.createDocumentFragment();
+    while (temp.firstChild) {
+      frag.appendChild(temp.firstChild);
+    }
+    parent.appendChild(frag);
+  } else {
+    parent.appendChild(text);
+  }
+}
+
 module.exports = {
   tplReplace,
   removeClass,
   getUrlQueryValue,
-  toggleClassName,
   hasClassName,
   debounce,
-  controlAnimation,
-  throttle
+  throttle,
+  append
 };

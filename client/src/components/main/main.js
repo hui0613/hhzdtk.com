@@ -24,21 +24,20 @@ class Main {
   }
   render() {
     if (!this.data) {
-      this.$el.append(
+      tools.append(this.$el,
         tools.tplReplace(tpl(),{
           content: new Err().tpl(),
           aside: this.aside.tpl(),
           footer: this.footer.tpl(),
-        })
-      );
+        }))
     } else {
-      this.$el.append(
+      tools.append(this.$el,
         tools.tplReplace(tpl(),{
           content: this.content.tpl(this.pageStr,this.data,this.count),
           aside: this.aside.tpl(this.hotList),
           footer: this.footer.tpl(),
         })
-      );
+      )
     }
   }
 }

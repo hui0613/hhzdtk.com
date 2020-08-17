@@ -11,7 +11,7 @@ class Login {
     this.render();
   }
   render() {
-    this.$el.append(tools.tplReplace(tpl(), {}));
+    tools.append(this.$el,tools.tplReplace(tpl(),{}))
   }
 }
 

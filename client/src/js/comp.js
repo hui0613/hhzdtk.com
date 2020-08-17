@@ -1,11 +1,13 @@
-const $ = require("jquery");
+// const $ = require("jquery");
 import { WaterFall } from "../components/comp/waterfall";
 import Axios from "axios";
 import config from "../utils/config";
+import tools from "../utils/tools";
 
 class Index {
   constructor() {
-    this.$app = $("<div id=app>");
+    this.$app = document.createElement('div');
+    this.$app.setAttribute('id','app');
     this.name = "index";
     this.comCount = 0;
 
@@ -16,18 +18,19 @@ class Index {
     this.render();
   }
   render() {
-    new WaterFall(this.$app, this.getDatas).init();
-    $("body").prepend(this.$app);
+    new WaterFall(this.$app,this.getDatas).init();
+    // $("body").prepend(this.$app);
+    tools.append(document.body,this.$app)
   }
   async getDatas() {
-    await Axios.post(config.API.baseUrl + "comList", { page: 1 })
+    await Axios.post(config.API.baseUrl + "comList",{ page: 1 })
       .then((response) => {
         console.log(response.data);
         this.imgData = response.data;
         // this.imgData.push(...response.data);
         // this.comCount = 30;
       })
-      .catch((err) => {});
+      .catch((err) => { });
 
     // await Axios.post(config.API.baseUrl + 'comCount',{ page: 1 }).then(response => {
     //     // //console.log(response.data)

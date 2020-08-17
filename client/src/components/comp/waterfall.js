@@ -109,7 +109,12 @@ class WaterFall {
   }
 
   setWaterFall(imgList) {
-    this.$el.append(imgList);
+    // this.$el.append(imgList);
+    console.log(imgList)
+    for (let i = 0; i < imgList.length; i++) {
+      this.$el.appendChild(imgList[i])
+    }
+    // tools.append(this.$el,imgList)
   }
   bindEvent() {
     window.addEventListener(

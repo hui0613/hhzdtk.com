@@ -3,7 +3,7 @@ import config from "../utils/config";
 
 function axios(method, url, data) {
   return Axios({
-    method: method,
+    method: method || "get",
     url: config.API.baseUrl + url,
     data: data,
     headers: {

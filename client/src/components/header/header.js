@@ -21,11 +21,13 @@ class Header {
     //   logo: this.logo.tpl(),
     //   search: this.search.tpl(),
     // })
-    await tools.append(this.$el,tools.tplReplace(tpl(),{
-      logo: this.logo.tpl(),
-      search: this.search.tpl(),
-    }))
-
+    await tools.append(
+      this.$el,
+      tools.tplReplace(tpl(), {
+        logo: this.logo.tpl(),
+        search: this.search.tpl(),
+      })
+    );
   }
   bindEvent() {
     let mbSearch = document.getElementById("mb_search");
@@ -34,18 +36,18 @@ class Header {
     var mask = document.getElementById("mask");
     //console.log(smSearch);
     mbSearch.onclick = function () {
-      tools.controlAnimation(smSearch,"showSearch","hideSearch");
+      tools.controlAnimation(smSearch, "showSearch", "hideSearch");
     };
     mbMenu.onclick = function () {
       if (
-        tools.hasClassName(aside,"hideAsideDrawer") ||
+        tools.hasClassName(aside, "hideAsideDrawer") ||
         aside.className == ""
       ) {
-        tools.removeClass(aside,"hideAsideDrawer");
+        tools.removeClass(aside, "hideAsideDrawer");
         aside.className += "showAsideDrawer";
         mask.style.display = "block";
-      } else if (tools.hasClassName(aside,"showAsideDrawer")) {
-        tools.removeClass(aside,"showAsideDrawer");
+      } else if (tools.hasClassName(aside, "showAsideDrawer")) {
+        tools.removeClass(aside, "showAsideDrawer");
         aside.className += "hideAsideDrawer";
         mask.style.display = "none";
       }
@@ -53,11 +55,20 @@ class Header {
 
     // 点击抽屉以外的区域关闭抽屉;
     mask.onclick = function () {
-      tools.removeClass(aside,"showAsideDrawer");
+      tools.removeClass(aside, "showAsideDrawer");
       aside.className += "hideAsideDrawer";
       mask.style.display = "none";
       // removeClass(aside, "hideAsideDrawer");
     };
+    let headerSearch = document.querySelector("#header_search");
+    tools.bindEvent(headerSearch, "keydown", (e) => {
+      // e.preventDefault();
+      if (e.keyCode == 13) {
+        // 按下回车
+        e.preventDefault();
+        window.location = "https://blog.jkdev.cn/index.php/search/mysql/";
+      }
+    });
   }
 }
 

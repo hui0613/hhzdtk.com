@@ -10,14 +10,14 @@ const config = {
   mode: "production",
   //入口文件 多页面时使用对象
   entry: {
-    index: path.resolve(__dirname,"./src/js/index.js"),
-    detail: path.resolve(__dirname,"./src/js/detail.js"),
-    login: path.resolve(__dirname,"./src/js/login.js"),
-    comp: path.resolve(__dirname,"./src/js/comp.js"),
+    index: path.resolve(__dirname, "./src/js/index.js"),
+    detail: path.resolve(__dirname, "./src/js/detail.js"),
+    login: path.resolve(__dirname, "./src/js/login.js"),
+    comp: path.resolve(__dirname, "./src/js/comp.js"),
   },
   //输出文件
   output: {
-    path: path.resolve(__dirname,"dist"),
+    path: path.resolve(__dirname, "dist"),
     filename: "js/[name].js",
   },
   module: {
@@ -38,7 +38,7 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader","css-loader"],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.scss$/i,
@@ -90,7 +90,7 @@ const config = {
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
     }),
-    new uglify(),
+    // new uglify(),
     new htmlWebpackPlugin({
       minify: {
         //删除注释
@@ -99,7 +99,7 @@ const config = {
         collapseWhitespace: true,
       },
       filename: "index.html",
-      template: path.resolve(__dirname,"src/index.html"),
+      template: path.resolve(__dirname, "src/index.html"),
       //网页的title
       title: "坏孩子的天空",
       //引入js文件的顺序
@@ -117,7 +117,7 @@ const config = {
         collapseWhitespace: true,
       },
       filename: "detail.html",
-      template: path.resolve(__dirname,"src/detail.html"),
+      template: path.resolve(__dirname, "src/detail.html"),
       //网页的title
       title: "文章详情",
       //引入js文件的顺序
@@ -135,7 +135,7 @@ const config = {
         collapseWhitespace: true,
       },
       filename: "login.html",
-      template: path.resolve(__dirname,"src/login.html"),
+      template: path.resolve(__dirname, "src/login.html"),
       //网页的title
       title: "登陆",
       //引入js文件的顺序
@@ -153,7 +153,7 @@ const config = {
         collapseWhitespace: true,
       },
       filename: "comp.html",
-      template: path.resolve(__dirname,"src/comp.html"),
+      template: path.resolve(__dirname, "src/comp.html"),
       //网页的title
       title: "项目展示",
       //引入js文件的顺序

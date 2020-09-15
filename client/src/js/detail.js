@@ -1,44 +1,32 @@
 // const $ = require("jquery");
-import "../scss/base.scss";
-import "../scss/common.scss";
-import { Header } from "../components/header/header";
-import { Aside } from "../components/aside/aside";
-import { Main } from "../components/main/main";
-import { App } from "./App";
-import tools from "../utils/tools";
-import Axios from "axios";
-import config from "../utils/config";
+import '../scss/base.scss';
+import '../scss/common.scss';
+import { Header } from '../components/header/header';
+import { Aside } from '../components/aside/aside';
+import { Main } from '../components/main/main';
+import { App } from './App';
+import tools from '../utils/tools';
+import { DetailModel } from '../model/detail';
 // import { Double } from "mongodb";
 class Index extends App {
   constructor() {
     super();
     this.init();
-    this.id = tools.getUrlQueryValue("p");
+    this.id = tools.getUrlQueryValue('p');
     this.detail = null;
   }
   async render() {
     await this.getDetail();
     new Header(this.$app).init();
-    new Aside(this.$app,this.settingCache).init();
-    new Main(this.$app,"detail",this.detail,this.hotArticle).init();
-    // $("body").prepend(this.$app);
-    tools.append(document.body,this.$app)
+    new Aside(this.$app, this.settingCache).init();
+    new Main(this.$app, 'detail', this.detail, this.hotArticle).init();
+    tools.append(document.body, this.$app);
   }
 
   async getDetail() {
-    console.log
-    await Axios.get(config.API.baseUrl + "detail",{
-      params: {
-        p: this.id,
-      },
-    })
-      .then((response) => {
-        //console.log(response.data[0]);
-        this.detail = response.data[0];
-      })
-      .catch((error) => {
-        //console.log("error");
-      });
+    let detailModel = new DetailModel();
+    this.detail = await detailModel.getDetail(this.id);
+    console.log('de' + this.detail);
   }
 }
 

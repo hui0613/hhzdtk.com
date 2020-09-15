@@ -1,5 +1,5 @@
 const API = {
-  baseUrl: "https://www.agonyy.top/api/",
+  baseUrl: 'https://www.agonyy.top/',
 };
 
 module.exports = { API };

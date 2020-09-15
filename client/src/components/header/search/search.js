@@ -9,6 +9,9 @@ class Search {
     this.init();
   }
   init() {}
+  searchByKeyWord(e) {
+    console.log(e);
+  }
 }
 
 export { Search };

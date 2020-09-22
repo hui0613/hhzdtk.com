@@ -1,20 +1,20 @@
-import tpl from "./item.ejs";
-import "./item.scss";
-import tools from "../../../utils/tools";
+import tpl from './item.ejs';
+import './item.scss';
+import tools from '../../../utils/tools';
 
 class PageItem {
   constructor() {
-    this.name = "pageItem";
+    this.name = 'pageItem';
   }
   tpl(data) {
-    let list = "";
+    let list = '';
     // 获取当前页
-    let curPage = tools.getUrlQueryValue("page") || 1,
+    let curPage = tools.getUrlQueryValue('page') || 1,
       pageTotal = Math.ceil(data / 10),
-      currPageClass = "";
+      currPageClass = '';
     // console.log(curPage);
     if (pageTotal === 1) {
-      return "";
+      return '';
     }
     if (curPage > 1) {
       list += `<li><a href="./index.html?page=${
@@ -27,9 +27,9 @@ class PageItem {
 
       for (let i = 0; i < pageTotal; i++) {
         if (i + 1 === curPage) {
-          currPageClass = "isCur";
+          currPageClass = 'isCur';
         } else {
-          currPageClass = "";
+          currPageClass = '';
         }
         list += tools.tplReplace(tpl(), {
           num: i + 1,
@@ -43,55 +43,55 @@ class PageItem {
       if (curPage <= 4) {
         for (let i = 0; i <= 3; i++) {
           if (i + 1 === curPage) {
-            currPageClass = "isCur";
+            currPageClass = 'isCur';
           } else {
-            currPageClass = "";
+            currPageClass = '';
           }
           list += tools.tplReplace(tpl(), {
             num: i + 1,
             isCur: currPageClass,
           });
         }
-        list += "<li>...</li>";
+        list += '<li>...</li>';
         for (let i = pageTotal - 3; i < pageTotal; i++) {
           list += tools.tplReplace(tpl(), {
             num: i + 1,
-            isCur: "",
+            isCur: '',
           });
         }
       } else if (curPage > 4 && curPage < pageTotal - 3) {
         for (let i = 0; i < 3; i++) {
           list += tools.tplReplace(tpl(), {
             num: i + 1,
-            isCur: "",
+            isCur: '',
           });
         }
-        list += "<li>...</li>";
+        list += '<li>...</li>';
         list += tools.tplReplace(tpl(), {
           num: curPage,
-          isCur: "isCur",
+          isCur: 'isCur',
         });
         // console.log(list);
-        list += "<li>...</li>";
+        list += '<li>...</li>';
         for (let i = pageTotal - 2; i < pageTotal; i++) {
           list += tools.tplReplace(tpl(), {
             num: i + 1,
-            isCur: "",
+            isCur: '',
           });
         }
       } else if (curPage >= pageTotal - 3) {
         for (let i = 0; i < 3; i++) {
           list += tools.tplReplace(tpl(), {
             num: i + 1,
-            isCur: "",
+            isCur: '',
           });
         }
-        list += "<li>...</li>";
+        list += '<li>...</li>';
         for (let i = pageTotal - 3; i < pageTotal; i++) {
           if (i + 1 === curPage) {
-            currPageClass = "isCur";
+            currPageClass = 'isCur';
           } else {
-            currPageClass = "";
+            currPageClass = '';
           }
           list += tools.tplReplace(tpl(), {
             num: i + 1,

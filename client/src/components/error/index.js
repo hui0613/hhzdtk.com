@@ -1,14 +1,15 @@
-import tpl from "./index.ejs";
-import "./index.scss";
-import tools from "../../utils/tools";
+import tpl from './index.ejs';
+import './index.scss';
+import tools from '../../utils/tools';
 
 class Err {
-  constructor(el) {
-    this.name = "error";
+  constructor(errorData) {
+    this.name = 'error';
+    this.errorData = errorData;
   }
   tpl() {
     return tools.tplReplace(tpl(), {
-      errorData: "error",
+      errorData: this.errorData,
     });
   }
 }

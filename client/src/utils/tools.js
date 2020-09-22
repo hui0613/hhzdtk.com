@@ -5,13 +5,12 @@ function tplReplace(tpl, replaceObj) {
 }
 
 function trimSpace(str) {
-  return str.replace(/\s+/g, "");
+  return str.replace(/\s+/g, '');
 }
 
 function getUrlQueryValue(key) {
-  const reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)", "i"),
+  const reg = new RegExp('(^|&)' + key + '=([^&]*)(&|$)', 'i'),
     res = window.location.search.substr(1).match(reg);
-  console.log(res);
   return res != null ? decodeURIComponent(res[2]) : null;
 }
 
@@ -32,8 +31,8 @@ function debounce(obj, fn, delay) {
 //定义函数删除元素的类
 function removeClass(obj, className) {
   if (hasClassName(obj, className)) {
-    let reg = new RegExp("\\b" + className + "\\b");
-    obj.className = obj.className.replace(reg, "");
+    let reg = new RegExp('\\b' + className + '\\b');
+    obj.className = obj.className.replace(reg, '');
   }
 }
 
@@ -51,7 +50,7 @@ function toggleClassName(obj, className) {
 // 定义函数判断指定元素 是否已经包含指定类名，避免重复添加类名
 function hasClassName(obj, className) {
   var objClassName = obj.className;
-  let reg = new RegExp("\\b" + className + "\\b");
+  let reg = new RegExp('\\b' + className + '\\b');
   if (reg.test(objClassName)) {
     return true;
   }
@@ -68,7 +67,7 @@ function controlAnimation(obj, showClass, hideClass) {
       removeClass(obj, hideClass);
       obj.className += showClass;
     } else {
-      obj.className += " " + showClass;
+      obj.className += ' ' + showClass;
     }
   }
 }
@@ -90,8 +89,8 @@ function throttle(obj, fn, delay) {
 }
 
 function append(parent, text) {
-  if (typeof text === "string") {
-    var temp = document.createElement("div");
+  if (typeof text === 'string') {
+    var temp = document.createElement('div');
     temp.innerHTML = text;
     // 防止元素太多 进行提速
     var frag = document.createDocumentFragment();
@@ -106,12 +105,12 @@ function append(parent, text) {
 
 function bindEvent(e, type, fn) {
   if (e.addEventListener) {
-    console.log("add");
+    console.log('add');
     e.addEventListener(type, fn, false);
   } else if (e.attachEvent) {
-    e.attachEvent("on" + type, fn);
+    e.attachEvent('on' + type, fn);
   } else {
-    e["on" + type] = fn;
+    e['on' + type] = fn;
   }
 }
 

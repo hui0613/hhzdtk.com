@@ -1,17 +1,16 @@
-import tpl from "./index.ejs";
-import "./index.scss";
+import tpl from './index.ejs';
+import './index.scss';
 
-import tools from "../../../../utils/tools";
+import tools from '../../../../utils/tools';
 
 class BlogPost {
   constructor() {
-    this.name = "blogPost";
+    this.name = 'blogPost';
   }
   tpl(data) {
-    let list = "";
-    console.log(data)
+    let list = '';
     data.forEach((item) => {
-      list += tools.tplReplace(tpl(),{
+      list += tools.tplReplace(tpl(), {
         id: item._id,
         title: item.title,
         brief: item.summary,

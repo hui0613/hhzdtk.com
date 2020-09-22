@@ -10,6 +10,8 @@ class App {
     this.pageCount = 0;
     this.hotArticle = null;
 
+    this.errData = null;
+
     this.indexMode = new IndexMode();
   }
   async init() {
@@ -19,7 +21,7 @@ class App {
 
   async getData() {
     //  获取站点信息
-    this.settingCache = await this.indexMode.getWebInfo();
+    this.settingCache = await (await this.indexMode.getWebInfo()).data;
 
     //获取最近文章
     this.hotArticle = await this.indexMode.getHostList();

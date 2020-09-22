@@ -6,7 +6,7 @@ import { Main } from '../components/main/main';
 
 import tools from '../utils/tools';
 import { App } from './App';
-class Index extends App {
+class Search extends App {
   constructor() {
     super();
     this.init();
@@ -27,8 +27,6 @@ class Index extends App {
       this.pageCount,
       this.hotArticle
     ).init();
-    // $("body").prepend(this.$app);
-    // console.log(this.$app)
     tools.append(document.body, this.$app);
   }
 
@@ -48,4 +46,4 @@ class Index extends App {
   }
 }
 
-new Index();
+new Search();

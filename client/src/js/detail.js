@@ -19,14 +19,13 @@ class Index extends App {
     await this.getDetail();
     new Header(this.$app).init();
     new Aside(this.$app, this.settingCache).init();
-    new Main(this.$app, 'detail', this.detail, this.hotArticle).init();
+    new Main(this.$app, 'detail', this.detail, '', 0, this.hotArticle).init();
     tools.append(document.body, this.$app);
   }
 
   async getDetail() {
     let detailModel = new DetailModel();
     this.detail = await detailModel.getDetail(this.id);
-    console.log('de' + this.detail);
   }
 }
 

@@ -1,6 +1,7 @@
-const Config = require("./config");
-const { ObjectID } = require("mongodb");
-const MongoClient = require("mongodb").MongoClient;
+const Config = require('./config');
+const { ObjectID } = require('mongodb');
+const { promiseImpl } = require('ejs');
+const MongoClient = require('mongodb').MongoClient;
 const Client = new MongoClient(
   `mongodb://${Config.userName}:${Config.password}@${Config.host}:${Config.port}/${Config.authSource}`,
   { useUnifiedTopology: true }
@@ -14,7 +15,7 @@ class Db {
     return Db.instance;
   }
   constructor() {
-    this.client = "";
+    this.client = '';
     // this.connect();
   }
 
@@ -181,6 +182,14 @@ class Db {
           reject(err);
         }
       );
+    });
+  }
+
+  searchBykeyWord(collectionName, json) {
+    return Promise((resolve, reject) => {
+      this.connect().then((db) => {
+        let result = db.collection(collectionName).find(json);
+      });
     });
   }
 }

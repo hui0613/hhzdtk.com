@@ -1,9 +1,8 @@
-const router = require("koa-router")();
-const DB = require("../modules/db");
-const { resolveInclude } = require("ejs");
+const router = require('koa-router')();
+const DB = require('../modules/db');
 
-router.get("/api/webInfo", async (ctx, next) => {
-  await DB.find("agony_setting", {}).then(
+router.get('/api/webInfo', async (ctx, next) => {
+  await DB.find('agony_setting', {}).then(
     (data) => {
       ctx.body = data;
     },
@@ -12,13 +11,14 @@ router.get("/api/webInfo", async (ctx, next) => {
       throw err;
     }
   );
+  // ctx.body = '12';
 });
 
-router.post("/api/articleList", async (ctx, next) => {
+router.post('/api/articleList', async (ctx, next) => {
   // console.log(ctx.request.body);
   let page = ctx.request.body.page - 1;
-  console.log(page);
-  await DB.pagination("agony_article", {}, page).then(
+  // console.log(page);
+  await DB.pagination('agony_article', {}, page).then(
     (data) => {
       // console.log(data);
       ctx.body = data;
@@ -30,8 +30,8 @@ router.post("/api/articleList", async (ctx, next) => {
   );
 });
 
-router.get("/api/hotList", async (ctx, next) => {
-  await DB.hotArticle("agony_article", {}).then(
+router.get('/api/hotList', async (ctx, next) => {
+  await DB.hotArticle('agony_article', {}).then(
     (data) => {
       ctx.body = data;
     },
@@ -42,8 +42,8 @@ router.get("/api/hotList", async (ctx, next) => {
   );
 });
 
-router.get("/api/getCounts", async (ctx, next) => {
-  await DB.count("agony_article", {}).then(
+router.get('/api/getCounts', async (ctx, next) => {
+  await DB.count('agony_article', {}).then(
     (data) => {
       ctx.body = data;
     },
@@ -52,6 +52,10 @@ router.get("/api/getCounts", async (ctx, next) => {
       // console.log(err);
     }
   );
+});
+router.get('/demo', async (ctx, next) => {
+  console.log(ctx.query);
+  ctx.body = '123';
 });
 
 module.exports = router;

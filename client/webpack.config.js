@@ -15,6 +15,7 @@ const config = {
     login: path.resolve(__dirname, './src/js/login.js'),
     comp: path.resolve(__dirname, './src/js/comp.js'),
     search: path.resolve(__dirname, './src/js/search.js'),
+    register:path.resolve(__dirname,'./src/js/register.js')
   },
   //输出文件
   output: {
@@ -88,9 +89,10 @@ const config = {
     ],
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
-    }),
+    // new webpack.HotModuleReplacementPlugin(),
+    // new MiniCssExtractPlugin({
+    //   filename: 'css/[name].css',
+    // }),
     // new uglify(),
     new htmlWebpackPlugin({
       minify: {
@@ -182,11 +184,30 @@ const config = {
       excludeChunks: ['node_modules'],
       hash: true,
     }),
+    new htmlWebpackPlugin({
+      minify: {
+        //删除注释
+        removeComments: true,
+        //删除回车和换行
+        collapseWhitespace: true,
+      },
+      filename: 'register.html',
+      template: path.resolve(__dirname, 'src/register.html'),
+      //网页的title
+      title: '注册',
+      //引入js文件的顺序
+      chunksSortMode: 'manual',
+      //需要引入的js文件
+      chunks: ['register'],
+      excludeChunks: ['node_modules'],
+      hash: true,
+    }),
   ],
   devServer: {
     open: true,
     host: 'localhost',
     port: 9813,
+    hot:true
   },
 };
 
